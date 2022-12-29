@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@1,800&family=Arvo&family=Bree+Serif&family=Libre+Baskerville:wght@700&family=Nunito:wght@300&family=Orelega+One&family=PT+Serif:ital,wght@1,700&family=Roboto+Slab:wght@600&family=Signika+Negative:wght@300&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/48a00b8081.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+
+    <link rel="shortcut icon" href="/Images/youtube.png">
+    <title>YouTube</title>
+    <style>
+        .item3 .data video::-webkit-media-controls-panel {
+            display: none !important;
+            opacity: 1 !important;
+        }
+
+        body {
+            background-color: #0f0f0f;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .item1 {
+            position: sticky;
+            top: 0px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            color: white;
+            padding: .2rem .2rem;
+        }
+
+        .item1 .fa-bars {
+            padding: 1rem;
+            font-size: 4vw;
+        }
+
+        .item1 .fa-youtube,
+        span {
+            font-size: 4vw;
+
+        }
+
+        .logo_name {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .others {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 3.5vw;
+            padding-right: 1rem;
+
+        }
+
+        .item2 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .item2::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .item2 ul {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .item2 ul li {
+            list-style: none;
+            background-color: #222121;
+            padding: .5rem 2rem;
+            border-radius: .3rem;
+        }
+
+        .item2 ul li:hover {
+            background-color: #151313;
+
+        }
+
+        .item2 ul li a {
+            text-decoration: none;
+            color: white;
+            text-align: center;
+
+        }
+
+        .item3 {
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .item3 .data video {
+            border-radius: 13px;
+            width: 46vw;
+        }
+
+
+
+        .contain {
+            margin: 0 1rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .contain img {
+            width: 4vw;
+        }
+
+        .contain span {
+            font-size: 1.7vw;
+            color: white;
+        }
+
+        .contain i {
+            color: white;
+            font-size: .8rem;
+        }
+
+        .fa-youtube {
+            color: rgb(251, 7, 7);
+        }
+
+        .logo_name i:hover {
+            background-color: rgb(30, 27, 27);
+            border-radius: .2rem;
+        }
+
+        .others i {
+            padding: .7rem 1rem;
+        }
+
+        .others i:hover {
+            background-color: rgb(30, 27, 27);
+            border-radius: .2rem;
+        }
+
+        @media screen and (max-width: 420px) {
+
+            .container {
+                margin: 0 .2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .item3 .data video {
+                border-radius: 6px;
+                width: 89%;
+            }
+
+            .contain span {
+                font-size: 3.4vw;
+            }
+
+            .contain img {
+                width: 6.5vw;
+            }
+
+            .contain i {
+                font-size: 1.2rem;
+            }
+
+            .others {
+                padding-right: 0rem;
+            }
+
+            .others i {
+                padding: 3vw 2vw;
+            }
+            .item2 ul li a{
+                font-size: 3vw;
+            }
+        }
+
+        .sidebar span i {
+            padding-right: .2rem;
+            cursor: pointer;
+        }
+
+        .sidebar span {
+            cursor: pointer;
+        }
+
+        .sidebar {
+            background-color: #0f0f0f;
+            justify-content: start;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 20rem;
+            left: -20rem;
+            top: .1rem;
+            width: 12rem;
+            padding: 1rem 1rem;
+            height: 100vh;
+            align-items: flex-start;
+            transition: all .4s ease-in-out;
+        }
+
+        #check {
+            display: none;
+        }
+
+        label #btn,
+        #cancel {
+            position: relative;
+            cursor: pointer;
+            background-color: black;
+            border-radius: .3rem;
+            transition: all .4s ease-in-out;
+
+        }
+
+        #btn {
+            left: .7rem;
+            top: 0rem;
+            color: white;
+            font-size: 1rem;
+            padding: .6rem 1rem;
+        }
+
+        #cancel {
+            z-index: 111;
+            left: -10rem;
+            top: 0rem;
+            font-size: 1rem;
+            color: white;
+            padding: .4rem .9rem;
+        }
+
+        #check:checked~.sidebar {
+            left: 0;
+        }
+
+        #check:checked~label #btn {
+            left: 14rem;
+            pointer-events: none;
+        }
+
+        #check:checked~label #cancel {
+            left: 7rem;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+            margin-bottom: 1rem;
+            padding: .7rem 1rem;
+        }
+
+        .sidebar ul li:hover {
+            background-color: rgb(21, 21, 23);
+            border-radius: .4rem;
+        }
+
+        .sidebar li a {
+            text-decoration: none;
+            color: white;
+            font-size: 2.8vw;
+        }
+
+        .sidebar li i {
+            padding-right: .5rem;
+        }
+
+        .data {
+            display: flex;
+            justify-content: center;
+        }
+
+        @media screen and (max-width: 280px) {
+            .others {
+                display: none;
+            }
+
+            .item1 .fa-youtube,
+            span {
+                font-size: 7vw;
+            }
+
+            .sidebar li a {
+                font-size: 5.5vw;
+            }
+        }
+
+        @media screen and (min-width: 620px) and (max-width:1280px) {
+            .item1 {
+                grid-column-start: 1;
+                grid-column-end: 6;
+            }
+
+            .item2 {
+                grid-column-start: 1;
+                grid-column-end: 6;
+            }
+
+            .item3 .data video {
+                border-radius: 4px;
+                width: 13rem;
+            }
+
+            .contain {
+                margin: 0;
+            }
+
+            .contain span {
+                font-size: .8rem;
+            }
+
+            .contain img {
+                width: 3vw;
+            }
+
+            .contain i {
+                color: white;
+                font-size: .7rem;
+            }
+
+            .sidebar li a {
+                font-size: 1rem;
+            }
+
+            .item1 .fa-youtube,
+            span {
+                font-size: 1.8rem;
+            }
+
+            #cancel {
+                z-index: 111;
+                left: -10rem;
+                top: -0.6rem;
+                font-size: 1rem;
+                color: white;
+                padding: 0.4rem 0.9rem;
+            }
+        }
+
+        @media screen and (min-width: 1280px) and (max-width:2000px) {
+            .item1 {
+                position: sticky;
+                top: 0px;
+                grid-column-start: 1;
+                grid-column-end: 9;
+            }
+
+            .item2 {
+                grid-column-start: 1;
+                grid-column-end: 9;
+            }
+
+            .item3 .data video {
+                border-radius: 8px;
+                width: 13vw;
+            }
+
+            .contain img {
+                width: 1.6rem;
+            }
+
+            .contain {
+                margin: 0;
+            }
+
+            .contain span {
+                font-size: .6rem;
+                color: white;
+            }
+
+            .others i {
+                font-size: 2rem;
+            }
+
+            .item1 .fa-youtube,
+            span {
+                font-size: 2vw;
+            }
+
+            #btn {
+                font-size: 2vw;
+            }
+
+            .sidebar {
+                width: 26rem;
+                left: -28rem;
+            }
+
+            .sidebar li a {
+                font-size: 1.5rem;
+            }
+
+            .sidebar ul li {
+                margin-bottom: 2rem;
+                padding: 0.7rem 2rem;
+            }
+
+            .item1 .fa-youtube,
+            span {
+                font-size: 3vw;
+            }
+
+            #check:checked~label #cancel {
+                left: 19rem;
+            }
+
+            #cancel {
+                padding: 1rem 1.3rem;
+            }
+        }
+
+        section a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+
+            <div class="child item1">
+
+                <div class="logo_name">
+                    <!-- <i class="fa-solid fa-bars" id="btn"></i> -->
+                    <input type="checkbox" id="check">
+                    <label for="check">
+                        <i class="fa-solid fa-bars" id="btn"></i>
+                        <i class="fa-solid fa-times" id="cancel"></i>
+                    </label>
+                    <div class="sidebar">
+                        <span> <i class="fa-brands fa-youtube"></i> YouTube</span>
+                        <ul>
+                            <li><a href=""><i class="fa-solid fa-house"></i>Home</a></li>
+                            <li><a href=""><i class="fa-solid fa-circle-play"></i>Shorts</a></li>
+                            <li><a href=""><i class="fa-solid fa-tags"></i>Subscriptions</a></li>
+                            <li><a href=""><i class="fa-solid fa-bookmark"></i>LIbrary</a></li>
+                            <li><a href=""><i class="fa-solid fa-clock-rotate-left"></i>History</a></li>
+                            <li><a href=""><i class="fa-solid fa-video"></i>Your Videos</a></li>
+                            <li><a href=""><i class="fa-solid fa-clock"></i>Watch Later</a></li>
+
+                            <li><a href=""><i class="fa-solid fa-thumbs-up"></i>Liked Videos</a></li>
+                            <li><a href=""><i class="fa-solid fa-circle-chevron-down"></i>Show More</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="logo">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>YouTube</span>
+                    </div>
+                </div>
+                <div class="others">
+                    <i class="fa-brands fa-searchengin" title="Search Anything"></i>
+                    <i class="fa-solid fa-microphone" title="Voice"></i>
+                    <i class="fa-solid fa-video" title="Video"></i>
+                    <i class="fa-sharp fa-solid fa-bell" title="Notifications"></i>
+                    <a href="#">
+                        <i class="fa-solid fa-right-from-bracket" title="LogOut"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="child item2">
+                <ul>
+                    <li><a href=""> Programming</a></li>
+                    <li><a href="">All</a></li>
+
+                    <li><a href="">Music</a></li>
+                    <li><a href="">Avatar</a></li>
+                    <li><a href="">Thrillers</a></li>
+                    <li><a href="">Editing</a></li>
+                    <li><a href="">Mixes</a></li>
+                    <li><a href="">Avengers</a></li>
+                    <li><a href="">Popular</a></li>
+                    <li><a href="">Popular</a></li>
+                    <li><a href="">Favourites</a></li>
+                    <li><a href="">Popular</a></li>
+                    <li><a href="">Avengers</a></li>
+                    <li><a href="">Music</a></li>
+                    <li><a href="">Avatar</a></li>
+                    <li><a href="">Thrillers</a></li>
+
+                </ul>
+            </div>
+
+            <div class="child items item3">
+                <div class="data">
+
+                    <video src="/Videos/Avatar.mp4" controls autoplay></video>
+                </div>
+                <a href="video_screen.html">
+                    <div class="contain">
+                        <img src="/Images/letter-m.png" alt="">
+                        <span>Avatar The Way Of Water ipsum dolor sit amet consectetur adipisicing elit</span>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="child items item3">
+                <div class="data">
+                    <video src="/Videos/awesome.mp4" controls></video>
+                </div>
+                <a href="video_screen.html">
+                    <div class="contain">
+                        <img src="/Images/letter-a.png" alt="">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, mollitia.</span>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="child items item3">
+                <div class="data">
+                    <video src="/Videos/study.mp4" controls></video>
+                </div>
+                <a href="video_screen.html">
+
+                    <div class="contain">
+                        <img src="/Images/letter-m.png" alt="">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, mollitia.</span>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="child items item3">
+                <div class="data">
+                    <video src="/Videos/Avatar.mp4" controls></video>
+                </div>
+                <a href="video_screen.html">
+
+                    <div class="contain">
+                        <img src="/Images/letter-m.png" alt="">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, mollitia.</span>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="child items item3">
+                <div class="data">
+                    <video src="/Videos/awesome.mp4" controls></video>
+                </div>
+                <a href="video_screen.html">
+                    <div class="contain">
+                        <img src="/Images/letter-a.png" alt="">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, mollitia.</span>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="child items item3">
+                <div class="data">
+                    <video src="/Videos/study.mp4" controls></video>
+                </div>
+                <a href="video_screen.html">
+                    <div class="contain">
+                        <img src="/Images/letter-m.png" alt="">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, mollitia.</span>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="child items item3">
+                <div class="data">
+                    <video src="/Videos/Avatar.mp4" controls></video>
+                </div>
+                <a href="video_screen.html">
+                    <div class="contain">
+                        <img src="/Images/letter-m.png" alt="">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, mollitia.</span>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="child items item3">
+                <div class="data">
+                    <video src="/Videos/awesome.mp4" controls></video>
+                </div>
+                <a href="video_screen.html">
+                    <div class="contain">
+                        <img src="/Images/letter-a.png" alt="">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, mollitia.</span>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@1,800&family=Arvo&family=Bree+Serif&family=Libre+Baskerville:wght@700&family=Nunito:wght@300&family=Orelega+One&family=PT+Serif:ital,wght@1,700&family=Roboto+Slab:wght@600&family=Signika+Negative:wght@300&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/48a00b8081.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="/Images/youtube.png">
+    <title>YouTube</title>
+    <style>
+        body {
+            background-color: #0f0f0f;
+        }
+
+        .videos video::-webkit-media-controls-panel {
+            display: none !important;
+            opacity: 1 !important;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .desc span {
+            color: white;
+            font-size: 4vw;
+        }
+
+        .videoPlayer video {
+            height: 55vw;
+            border-radius: .6rem;
+        }
+
+        .subscribe {
+            margin-top: .7rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .subscribe input {
+            margin-left: 1rem;
+            background-color: white;
+            border-radius: .4rem;
+            color: black;
+            outline: none;
+            font-weight: bolder;
+            border: none;
+            font-size: 4vw;
+            padding: 1.5vw 2vw;
+        }
+
+        .subscribe ul li {
+            color: white;
+            list-style: none;
+            cursor: pointer;
+            font-size: 3.5vw;
+        }
+
+        .subscribe img {
+            height: 10vw;
+            cursor: pointer;
+        }
+
+        .desc .navbar {
+            flex-direction: row;
+            display: flex;
+            gap: 1rem;
+            overflow: auto;
+            width: 90%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .desc .navbar::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .desc .navbar li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(37, 37, 40);
+            border-radius: .4rem;
+            min-width: 5rem;
+            padding: 3vw;
+        }
+
+        .desc .navbar li a {
+            color: rgb(236, 234, 250);
+            text-decoration: none;
+        }
+
+        .videos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .videos video {
+            height: 25vw;
+            border-radius: .4rem;
+        }
+
+        .videos ul li {
+            color: white;
+            list-style: none;
+
+        }
+
+        .videos .name {
+            font-size: 3vw;
+
+        }
+
+        .videos .channel {
+            margin: .4rem 0;
+            font-size: 2.7vw;
+        }
+
+        .videos .views {
+            color: grey;
+            font-size: 2.7vw;
+
+        }
+
+        .space {
+            height: 1.4vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section>
+        <div class="content">
+            <div class="videoPlayer">
+                <video src="/Videos/Avatar.mp4" controls autoplay></video>
+            </div>
+            <div class="desc">
+                <span>Avatar ipsum dolor sit, amet consectetur adipisicing elit. Iste porro mollitia voluptatum non,
+                    inventore id voluptate qui dolorum </span>
+
+                <div class="subscribe">
+                    <img src="/images/letter-m.png" alt="">
+                    <ul>
+                        <li>CodeWithMurli</li>
+                        <li>1M Subscribers</li>
+                    </ul>
+                    <input type="button" value="Subscribe">
+                </div>
+                <!-- <i class="fa-solid fa-heart"></i> -->
+                <ul class="navbar">
+                    <li><a href=""><i class="fa-solid fa-thumbs-up"></i>&nbsp; Likes</a></li>
+                    <li><a href="" style="font-size: .9vw ;"><i class="fa-solid fa-thumbs-down"></i>&nbsp; Dislikes</a>
+                    </li>
+                    <li><a href=""><i class="fa-solid fa-share-from-square"></i>&nbsp; Share</a></li>
+                    <li><a href=""><i class="fa-solid fa-tag"></i>Thanks</a></li>
+                    <li><a href=""><i class="fa-solid fa-camera-rotate"></i>Clip</a></li>
+                    <li><a href=""><i class="fa-solid fa-share-from-square"></i>&nbsp; Share</a></li>
+                    <li><a href=""><i class="fa-solid fa-tag"></i>&nbsp; Thanks</a></li>
+                    <li><a href=""><i class="fa-solid fa-share-from-square"></i>&nbsp; Share</a></li>
+                    <li><a href=""><i class="fa-solid fa-tag"></i>&nbsp; Thanks</a></li>
+                    <li><a href=""><i class="fa-solid fa-angles-right"></i>&nbsp; More</a></li>
+                </ul>
+                <div class="videos">
+                    <div class="videoC">
+                        <video src="/Videos/awesome.mp4" controls></video>
+                    </div>
+                    <ul class="videosN">
+                        <li class="name">Lorem ipsum, dolor sit amet fdfsqlql consectetur adipisicing elit. Nostrum,
+                            officiis.
+                        </li>
+                        <li class="channel"> CodeWithMurli</li>
+                        <li class="views">10M Views &nbsp; 1 Month Ago</li>
+                    </ul>
+                </div>
+
+                <div class="space"></div>
+                <div class="videos">
+                    <div class="videoC">
+                        <video src="/Videos/study.mp4" controls></video>
+                    </div>
+                    <ul class="videosN">
+                        <li class="name">Lorem ipsum, dolor sit amet fdfsqlql consectetur adipisicing elit. Nostrum,
+                            officiis.
+                        </li>
+                        <li class="channel"> CodeWithMurli</li>
+                        <li class="views">10M Views &nbsp; 1 Month Ago</li>
+                    </ul>
+
+                </div>
+                <div class="space"></div>
+                <div class="videos">
+                    <div class="videoC">
+                        <video src="/Videos/awesome.mp4" controls></video>
+                    </div>
+                    <ul class="videosN">
+                        <li class="name">Lorem ipsum, dolor sit amet fdfsqlql consectetur adipisicing elit. Nostrum,
+                            officiis.
+                        </li>
+                        <li class="channel"> CodeWithMurli</li>
+                        <li class="views">10M Views &nbsp; 1 Month Ago</li>
+                    </ul>
+
+                </div>
+                <div class="space"></div>
+                <div class="videos">
+                    <div class="videoC">
+                        <video src="/Videos/Avatar.mp4" controls></video>
+                    </div>
+                    <ul class="videosN">
+                        <li class="name">Lorem ipsum, dolor sit amet fdfsqlql consectetur adipisicing elit. Nostrum,
+                            officiis.
+                        </li>
+                        <li class="channel"> CodeWithMurli</li>
+                        <li class="views">10M Views &nbsp; 1 Month Ago</li>
+                    </ul>
+
+                </div>
+                <div class="space"></div>
+                <div class="videos">
+                    <div class="videoC">
+                        <video src="/Videos/study.mp4" controls></video>
+                    </div>
+                    <ul class="videosN">
+                        <li class="name">Lorem ipsum, dolor sit amet fdfsqlql consectetur adipisicing elit. Nostrum,
+                            officiis.
+                        </li>
+                        <li class="channel"> CodeWithMurli</li>
+                        <li class="views">10M Views &nbsp; 1 Month Ago</li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Images/youtube.png">
+    <title>YouTube</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 96vh;
+        }
+
+        .container img {
+            width: 19vw;
+        }
+
+        span {
+            color: grey;
+            position: fixed;
+            bottom: 5px;
+            font-weight: bolder;
+        }
+
+        @media screen and (max-width:600px) {
+            .container img {
+                width: 30vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <img src="/Images/youtube.png" alt="">
+        </div>
+        <span>@Murli</span>
+    </section>
+
+</body>
+<script>
+    setTimeout(function () {
+        window.location.href = "youtube.html";
+    }, 5000)
+</script>
+
+</html>
